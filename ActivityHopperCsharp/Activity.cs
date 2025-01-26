@@ -8,12 +8,13 @@ namespace ActivityHopperCsharp
 {
     internal class Activity
     {
-        private bool hasBeenSuggested = false;
         public Activity(string name)
         {
             Name = name;
+            HasBeenSuggested = false;
         }
 
         public string Name { get; }
+        public bool HasBeenSuggested { get; set; }
     }
 }
