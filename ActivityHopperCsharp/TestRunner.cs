@@ -8,12 +8,6 @@ namespace ActivityHopperCsharp
 {
     internal class TestRunner
     {
-        // Constructor
-        public TestRunner()
-        {
-
-        }
-
         public void RunAllTests()
         {
             Console.WriteLine("Running tests...");
@@ -22,64 +16,20 @@ namespace ActivityHopperCsharp
             Activity testActivity = new Activity("Test activity");
             ActivityHopper testActivityHopper = new ActivityHopper();
 
-            AssertEquals("Test activity", testActivity.Name, "Test getting activity name via Name");
+            TestHelper.AssertEquals("Test activity", testActivity.Name, "Test getting activity name via Name");
 
-            AssertFalse(testActivity.HasBeenSuggested, "HasBeenSuggested is initially false");
+            TestHelper.AssertFalse(testActivity.HasBeenSuggested, "HasBeenSuggested is initially false");
 
             Activity suggestedActivity = new Activity("Suggested activity");
             suggestedActivity.HasBeenSuggested = true;
-            AssertTrue(suggestedActivity.HasBeenSuggested, "Suggested Activity has HasBeenSuggested == true");
+            TestHelper.AssertTrue(suggestedActivity.HasBeenSuggested, "Suggested Activity has HasBeenSuggested == true");
 
-            AssertTrue(testActivityHopper.Count() > 0, "New ActivityHopper has Count > 0");
+            TestHelper.AssertTrue(testActivityHopper.Count() > 0, "New ActivityHopper has Count > 0");
+
+            Activity a1 = testActivityHopper.GetFirstActivity();
+            TestHelper.AssertNotEquals("a", "a", "Two drawn Activities are not equal");
 
             Console.WriteLine("All tests complete.");
-        }
-
-        public void PrintSuccess(string testMessage)
-        {
-            Console.WriteLine($"[Success] {testMessage}");
-        }
-
-        public void PrintFailure(string testMessage)
-        {
-            Console.WriteLine($"[Failure] {testMessage}");
-        }
-
-        public void AssertEquals(string expected, string actual, string testName)
-        {
-            if (expected == actual)
-            {
-                PrintSuccess(testName);
-            }
-            else
-            {
-                PrintFailure($"{testName} - Expected: {expected}, Actual: {actual}");
-            }
-        }
-
-        public void AssertFalse(bool testResult, string testName)
-        {
-            if (testResult == false)
-            {
-                PrintSuccess(testName);
-            }
-            else
-            {
-                PrintFailure($"{testName} - Expected: false, Actual: {testResult}");
-            }
-
-        }
-
-        public void AssertTrue(bool testResult, string testName)
-        {
-            if (testResult)
-            {
-                PrintSuccess(testName);
-            }
-            else
-            {
-                PrintFailure($"{testName} - Expected: false, Actual: {testResult}");
-            }
         }
     }
 }
