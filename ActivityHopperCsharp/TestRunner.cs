@@ -27,7 +27,8 @@ namespace ActivityHopperCsharp
             TestHelper.AssertTrue(testActivityHopper.Count() > 0, "New ActivityHopper has Count > 0");
 
             Activity a1 = testActivityHopper.GetFirstActivity();
-            TestHelper.AssertNotEquals("a", "a", "Two drawn Activities are not equal");
+            Activity a2 = testActivityHopper.GetFirstActivity();
+            TestHelper.AssertNotEquals(a1.Name, a2.Name, "Two drawn Activities are not equal");
 
             Console.WriteLine("All tests complete.");
         }

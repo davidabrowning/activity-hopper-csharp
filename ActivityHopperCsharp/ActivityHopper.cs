@@ -28,5 +28,10 @@ namespace ActivityHopperCsharp
         {
             return activities.Count;
         }
+
+        public Activity GetFirstActivity()
+        {
+            return activities.First();
+        }
     }
 }
