@@ -20,6 +20,7 @@ namespace ActivityHopperCsharp
 
             // General test prep
             Activity testActivity = new Activity("Test activity");
+            ActivityHopper testActivityHopper = new ActivityHopper();
 
             AssertEquals("Test activity", testActivity.Name, "Test getting activity name via Name");
 
@@ -28,6 +29,8 @@ namespace ActivityHopperCsharp
             Activity suggestedActivity = new Activity("Suggested activity");
             suggestedActivity.HasBeenSuggested = true;
             AssertTrue(suggestedActivity.HasBeenSuggested, "Suggested Activity has HasBeenSuggested == true");
+
+            AssertTrue(testActivityHopper.Count() > 0, "New ActivityHopper has Count > 0");
 
             Console.WriteLine("All tests complete.");
         }
