@@ -8,11 +8,10 @@ namespace ActivityHopperCsharp
 {
     internal class Activity
     {
-        private string name;
         private bool hasBeenSuggested = false;
         public Activity(string name)
         {
-            this.name = name;
+            Name = name;
         }
 
         public string Name { get; }

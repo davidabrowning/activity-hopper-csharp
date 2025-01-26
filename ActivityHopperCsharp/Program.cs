@@ -4,9 +4,18 @@
     {
         static void Main(string[] args)
         {
+            RunTests();
+            // RunProgram();
+        }
+
+        private static void RunTests()
+        {
             TestRunner testRunner = new TestRunner();
             testRunner.RunAllTests();
+        }
 
+        private static void RunProgram()
+        {
             bool run = true;
             while (run)
             {
