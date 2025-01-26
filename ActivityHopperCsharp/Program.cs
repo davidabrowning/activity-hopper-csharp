@@ -4,6 +4,9 @@
     {
         static void Main(string[] args)
         {
+            TestRunner testRunner = new TestRunner();
+            testRunner.RunAllTests();
+
             bool run = true;
             while (run)
             {
